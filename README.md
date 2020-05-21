@@ -14,7 +14,9 @@ Things you may want to cover:
 * Database creation
 
 * Database initialization
-** userテーブル **
+
+
+**userテーブル**
 
 |Column|Type|Options|
 |------|----|-------|
@@ -40,7 +42,7 @@ Association
 - belongs_to:cards
 
 
-** addressテーブル **
+**addressテーブル**
 
 |Column|Type|Options|
 |------|----|-------|
@@ -56,7 +58,7 @@ Asscsiation
 - belongs_to:users
 
 
-** productテーブル **
+**productテーブル**
 
 |Column|Type|Options|
 |------|----|-------|
@@ -79,7 +81,7 @@ Association
 - has_many:favorite
 
 
-** imagesテーブル **
+**imagesテーブル**
 
 |Column|Type|Options|
 |------|----|-------|
@@ -91,7 +93,7 @@ Association
 - belongs_to:product
 
 
-** cardテーブル **
+**cardテーブル**
 
 |Column|Type|Options|
 |------|----|-------|
@@ -104,7 +106,7 @@ Association
 - belongs_to:user
 
 
-** categoryテーブル **
+**categoryテーブル**
 
 |Column|Type|Options|
 |------|----|-------|
@@ -113,7 +115,7 @@ Association
 - has_many:product
 
 
-** commentテーブル **
+**commentテーブル**
 
 |Column|Type|Options|
 |------|----|-------|
@@ -127,7 +129,7 @@ Association
 - belongs_to:product
 
 
-** favoliteテーブル **
+**favoliteテーブル**
 
 |Column|Type|Options|
 |------|----|-------|
@@ -140,7 +142,7 @@ Association
 - belongs_to:product
 
 
-** sizeテーブル **
+**sizeテーブル**
 
 |Column|Type|Options|
 |------|----|-------|
@@ -150,6 +152,16 @@ Association
 
 - has_many:product
 
+**brandsテーブル**
+
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|-------|
+
+Association
+
+-has_many:product
 * How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
