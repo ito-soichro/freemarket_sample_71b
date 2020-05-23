@@ -1,6 +1,12 @@
+<<<<<<< Updated upstream:db/db/er.drawio or .dio
 <mxfile host="localhost" modified="2020-05-20T19:47:02.212Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.45.1 Chrome/78.0.3904.130 Electron/7.2.4 Safari/537.36" etag="GnB9_rAsPJtDc3PfKCeX" version="13.0.9">
     <diagram name="Page-1" id="ZSmFnqrZL5XlKcyp5Z2Q">
         <mxGraphModel dx="886" dy="1904" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+=======
+<mxfile host="localhost" modified="2020-05-23T08:20:55.374Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.45.1 Chrome/78.0.3904.130 Electron/7.2.4 Safari/537.36" etag="ECLF0nbcsAIrR97HlZks" version="13.0.9" pages="2">
+    <diagram id="6hGFLwfOUW9BJ-s0fimq" name="Page-1">
+        <mxGraphModel dx="211" dy="1974" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+>>>>>>> Stashed changes:db/er.drawio or .dio
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -286,4 +292,18 @@
             </root>
         </mxGraphModel>
     </diagram>
+<<<<<<< Updated upstream:db/db/er.drawio or .dio
+=======
+    <diagram name="ページ2" id="FSV9G4K44DVNtubVuwsy">
+        <mxGraphModel dx="211" dy="1974" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="gsa2dk2J1G7w-v77gKAg-0"/>
+                <mxCell id="gsa2dk2J1G7w-v77gKAg-1" parent="gsa2dk2J1G7w-v77gKAg-0"/>
+                <mxCell id="CAHM9HTuXqLU-msgyHep-0" value="Text" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="gsa2dk2J1G7w-v77gKAg-1">
+                    <mxGeometry x="246" y="-603" width="40" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+>>>>>>> Stashed changes:db/er.drawio or .dio
 </mxfile>
