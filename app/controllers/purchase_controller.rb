@@ -1,5 +1,5 @@
 class PurchaseController < ApplicationController
-  before_action :set_card
+  before_action :set_card,:set_product
   require 'payjp'
 
   def set_card
@@ -8,7 +8,7 @@ class PurchaseController < ApplicationController
 
   def index
     if @card.blank?
-      redirect_to contller: "card", action: "new"
+      redirect_to card_index_path
     else
       Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
       customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -23,9 +23,13 @@ class PurchaseController < ApplicationController
       :customer => @card.customer_id,
       :currency => 'jpy',
     )
-    @product_purchaser= Product.find_by(params[:id])
-    # binding.pry
-    @product_purchaser.update( buyer_id: current_user.id)
-    redirect_to action: 'done'
+    @product_purchaser = Product.find(params[:product_id])
+    @product_purchaser.update(buyer_id: current_user.id)
+    redirect_to done_product_purchase_index_path
+  end
+
+  private
+  def set_product
+    @product = Product.find(params[:product_id])
   end
 end
