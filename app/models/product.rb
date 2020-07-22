@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   belongs_to :category, optional: true
-  belongs_to :buyer, class_name: "User"
+  # belongs_to :buyer, class_name: "User"
   has_many :images
   has_many :images, dependent: :destroy
   belongs_to :user

@@ -27,7 +27,7 @@ class PurchaseController < ApplicationController
     @product_purchaser = Product.find(params[:product_id])
     # binding.pry
     @product_purchaser.update(buyer_id: current_user.id)
-    # redirect_to done_product_purchase_index_path
+    redirect_to done_product_purchase_index_path
   end
 
   private

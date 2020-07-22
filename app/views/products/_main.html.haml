@@ -83,7 +83,9 @@
          
           -# ログイン中かつ出品者以外の場合
 
-        -elsif user_signed_in?
+        -elsif @product.buyer_id.present?
+          = link_to "売り切れました！", root_path
+        -else user_signed_in? 
           = link_to "商品を購入する",  product_purchase_index_path(@product), class: "purchaseBtn"
 
           -# (ログアウト時はどちらも表示されない)
