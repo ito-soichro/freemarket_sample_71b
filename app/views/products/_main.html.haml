@@ -83,6 +83,7 @@
          
           -# ログイン中かつ出品者以外の場合
 
+
         -elsif @product.buyer_id.present?
           = link_to "売り切れました！", root_path
         -else user_signed_in? 

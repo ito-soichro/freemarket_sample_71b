@@ -6,7 +6,7 @@ $(function(){
     var files = $('input[type=file]').prop('files')[0];
     $.each(this.files, function(i,file){
     var fileReader = new FileReader();
-
+ 
     dataBox.items.add(file) 
     file_field.files =  dataBox.files 
     var num = $('.item-image').length + 1 + i 
