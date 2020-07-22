@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    binding.pry
     if params[:product][:images_attributes] && @product.save
       redirect_to root_path
     else

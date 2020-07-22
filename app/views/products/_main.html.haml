@@ -69,7 +69,7 @@
                   発送までの日数
                 %td
                   = @product.ship_day_i18n
-              %tr
+              %trz
                 %th
                   送料
                 %td
@@ -84,7 +84,7 @@
           -# ログイン中かつ出品者以外の場合
 
         -elsif user_signed_in?
-          = link_to "商品を購入する", purchace_index_path, class: "purchaseBtn"
+          = link_to "商品を購入する",  product_purchase_index_path(@product), class: "purchaseBtn"
 
           -# (ログアウト時はどちらも表示されない)
 
@@ -96,4 +96,3 @@
           %input{:name => "utf8", :type => "hidden", :value => "✓",}
           - unless @product.buyer_id.present?
             %button{:type => "submit", :onclick => "#", :class => "commentBtn"}
-              -# =link_to "購入する", done_purchace_index_path, class: "pay"
