@@ -9,6 +9,5 @@ class Address < ApplicationRecord
     validates :city
     validates :block
     validates :address
-    validates :bulding_name	
   end
 end
