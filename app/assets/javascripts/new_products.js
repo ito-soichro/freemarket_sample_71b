@@ -10,15 +10,16 @@ $(function(){
     dataBox.items.add(file) 
     file_field.files =  dataBox.files 
     var num = $('.item-image').length + 1 + i 
-    console.log(num);
+    // console.log(num);
     fileReader.readAsDataURL(file); 
-     
+        
+
      if (num == 5){ 
       $('#image-box__container').css('display', 'none')
      }
     fileReader.onloadend = function() {
       var src = fileReader.result
-      var html = `<div class='item-image' data-image="${file.name}">
+      var html = `<div class='item-image' data-index="${num} data-image="${file.name}">
                     <div class=' item-image__content'>
                       <div class='item-image__content--icon'>
                         <img src=${src} width="150" height="90" >
