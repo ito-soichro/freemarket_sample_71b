@@ -3,4 +3,4 @@
     = render 'menu-list'
     .logout-bord
       .logout-bord--button
-        ログアウト
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-button"
