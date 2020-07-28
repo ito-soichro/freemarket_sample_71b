@@ -6,7 +6,7 @@
         = image_tag 'bg-topMiddleDl-pict.jpg', alt: '', height: '100%', width: '100%', class: 'profile-image'
         = image_tag 'member_photo_noimage_thumb.png', alt: '', height: '100px', width: '100px', class: 'member_photo'
         .user-name
-          山田太郎
+          = current_user.nickname
         .user-info
           .reviews
             評価 0
