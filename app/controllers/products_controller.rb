@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
   def create
     # binding.pry
     @product = Product.new(product_params)
-    if params[:product][:images_attributes] && @product.save
+    if params[:product][:images_attributes] && @product.save!
       redirect_to root_path
     else
       @product.images.new
@@ -28,10 +28,14 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product.images.new
   end
 
   def update
+    # binding.pry
    if @product.update(product_params)
+    params[:product][:new_images] #[image1,image2]
+    
     redirect_to root_path
    else
     render :edit
@@ -52,6 +56,7 @@ class ProductsController < ApplicationController
     @children_category = Category.where(ancestry: params[:parent_category_id])
     render json:  @children_category
   end
+  
 
   def grandchildren_category
     #孫要素を探し、値を定義。定義された値をjsonへ送る
@@ -63,12 +68,20 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :condition, :brand, :send_price,:ship_day, images_attributes: [:name, :_destroy, :id])
-    .merge(user_id: current_user.id,category_id: params[:product][:category_id],prefecture_id: params[:product][:prefecture_id])
+    params.require(:product).permit(
+      :name, 
+      :description, 
+      :price, 
+      :condition, 
+      :brand, 
+      :send_price,:ship_day, 
+      images_attributes: [:name, :_destroy, :id]
+    ).merge(user_id: current_user.id,category_id: params[:product][:category_id],prefecture_id: params[:product][:prefecture_id])
   end
 
   def set_product
     @product = Product.find(params[:id])
+     #先にidを取得しておかなければ、edit、destroyが空のままになってしまってしまう。
   end
   
   def set_categories

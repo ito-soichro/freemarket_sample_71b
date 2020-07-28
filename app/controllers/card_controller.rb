@@ -6,11 +6,12 @@ class CardController < ApplicationController
     @parents = Category.where(ancestry: nil)
     card = Card.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
+   
   end
 
   def pay 
     Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
-    # binding.pry
+    #  binding.pry
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
@@ -49,5 +50,5 @@ class CardController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
-  end
+  end 
 end

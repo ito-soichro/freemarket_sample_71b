@@ -30,3 +30,11 @@
    @import "modules/footer";
    @import "modules/user";
    @import "modules/user_address";
+
+.item-image__content--icon {
+  display: flex;
+}
+
+.item-image {
+  margin: 0 10px;
+}

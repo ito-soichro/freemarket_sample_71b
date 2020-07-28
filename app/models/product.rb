@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to :category, optional: true
   # belongs_to :buyer, class_name: "User"
-  has_many :images
+  # has_many :images
   has_many :images, dependent: :destroy
   belongs_to :user, optional: true
 
@@ -27,3 +27,4 @@ class Product < ApplicationRecord
     validates :category_id
   end
 end
+
