@@ -35,15 +35,15 @@
                 %th
                   カテゴリー
                 %td
-                
                   = link_to "#", class: "tableCategory" do
-                    メンズ 
+                    = @product.category.parent.parent.name
                   %br
                   = link_to "#", class: "tableCategory" do
-                    トップス
+                    = @product.category.parent.name
                   %br
                   = link_to "#", class: "tableCategory" do
-                    シャツ
+                    = @product.category.name
+ 
               %tr
                 %th
                   ブランド
@@ -99,3 +99,4 @@
           %input{:name => "utf8", :type => "hidden", :value => "✓",}
           - unless @product.buyer_id.present?
             %button{:type => "submit", :onclick => "#", :class => "commentBtn"}
+              投稿
