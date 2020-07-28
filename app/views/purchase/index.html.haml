@@ -3,19 +3,22 @@
     .purchase-confirm__main-content 購入内容の確認
     %section.purchase-confirm__main-products
       .purchase-confirm__main-products-inside
-        = image_tag "https://static.mercdn.net/thumb/photos/m23249414252_1.jpg?1587623882",class:"purchase-confirm__main-products-inside-img" 
+        = image_tag @product.images[0].name.url
         .purchase-confirm__main-products-inside-product
           .purchase-confirm__main-products-inside-product--name
-            スペーサーリング 3mm
+            = @product.name
           .purchase-confirm__main-products-inside-product--totalprice
-            .purchase-confirm__main-products-inside-product--totalprice-price ¥10,000
-            .purchase-confirm__main-products-inside-product--totalprice-taxandpostage （税込）送料込み
+            .purchase-confirm__main-products-inside-product--totalprice-price
+              = @product.price
+            .purchase-confirm__main-products-inside-product--totalprice-taxandpostage
+              = @product.send_price 
     %section.purchase-confirm__main-details
       .purchase-confirm__main-details-inside
         .purchase-confirm__main-details-inside--price
           .purchase-confirm__main-details-inside--price-left 支払い金額
           .purchase-confirm__main-details-inside--price-right
-            .purchase-confirm__main-details-inside--price-right-price ¥10,000
+            .purchase-confirm__main-details-inside--price-right-price
+              = @product.price
         .purchase-confirm__main-details-inside--pointcheck
           %input{type:"checkbox"}/
           %i.purchase-confirm__main-details-inside--pointcheck-icon-check
@@ -40,8 +43,7 @@
           .purchase-confirm__main-details-inside--shippingaddress-shipping
             .purchase-confirm__main-details-inside--shippingaddress-shipping-left 配送先
             .purchase-confirm__main-details-inside--shippingaddress-shipping-right 
-              = link_to "#", class:"purchase-confirm__main-details-inside--shippingaddress-shipping-right-link" do
-                変更する
+              = link_to "変更する", users_path,class:"purchase-confirm__main-details-inside--shippingaddress-shipping-right-link"
           .purchase-confirm__main-details-inside--shippingaddress-address
             〒221-0000
             %br/
@@ -49,5 +51,5 @@
             %br/
             長谷川
         .purchase-confirm__main-details-inside--purchasebutton
-          = form_tag(action: :pay, method: :post) do
-            %button.purchase-confirm__main-details-inside--purchasebutton-button 購入する
+          = link_to pay_product_purchase_index_path(@product), method: :post do
+            購入する
