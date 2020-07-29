@@ -39,29 +39,22 @@ window.addEventListener("load", function(){
     let file_index = [0,1,2,3,4];
 
     $('#image-box-1').on('change', '.sell-upload-drop-file', (e)=>{
-      // console.log("ok");
       let file = e.target.files[0]
-      // console.log( file);
       let file_url = window.URL.createObjectURL(file);
-      // console.log(file_index);
       if (file_index.length != 0){
         // $('#image-box__container').hide();
-      // console.log(file_index);
       $('#image-box__container').before(buildFileField(file_index, file_url))
       file_index.shift();
-      // console.log(file_index);
       let index = Math.min(...file_index);
-      // console.log(index);
         $('.new-listing__sell-upload-drop-box').prepend(`<input value="" class="sell-upload-drop-file" id="product_images_attributes_${index}_name" type="file" name="product[images_attributes][${index}][name]">
         <input data-index="${index}" type="checkbox" value="${index}" name="product[images_attributes][${index}][_destroy]" id="product_images_attributes_${index}__destroy" class="hidden-destroy" >`)
-        // let check_box = $(`#product_images_attributes_${index}__destroy`)
        
         $('.hidden-destroy').hide();
 
-        // console.log(file_index);
-        // if (file_index == 4){ 
-        //   $('#image-box__container').css('display', 'none')
-        // }
+        console.log(file_index);
+        if (file_index == 4){ 
+          $('#image-box__container').css('display', 'none')
+        }
       }
     })
     $('.hidden-destroy').hide();

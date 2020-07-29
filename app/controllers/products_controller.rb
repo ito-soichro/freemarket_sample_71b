@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product.images.new
+    @product.images.build
   end
 
   def update
