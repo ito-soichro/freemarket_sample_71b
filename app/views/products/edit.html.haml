@@ -17,27 +17,21 @@
                 %span.necessary
                   必須
           %p.upload
-            最大5枚までアップロードできます
+            画像がアップロードできます
 
-          .item-box.item-num-0#image-box__container
-            - @product.images.each_with_index do |image, i|
-              - if image.name.url
-                .item-image__content--icon
-                  = image_tag image.name.url, data: { index: i }, width: "100", height: '100'
-              .text
-              = f.fields_for :images do |i|
-                .js-file_group.fix_index{"data-index" => "#{i.index}"}
-                  = i.file_field :name, class: 'js-file'
-                  %br/
-              %span.js-remove 削除
-              -# - if i.object.persisted?
-              -#   = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy fix_index' 
-              %label 
-                .new-listing__sell-upload-drop-box
-              
-            
-            
-            
+        #image-box-2
+          = f.fields_for :images do |i|
+            .item-box
+              .item-image__content--icon
+                - if i.object.name.url
+                  %img{src: i.object.name.url, width: "100", height: '100', "data-index": i.index }
+                - else
+                  %img{src: i.object.name.url, width: "100", height: '100', "data-index": i.index, style: 'display: none;' }
+              .js-file_group
+                = i.file_field :name, class: 'js-file sell-upload-drop-file', data:{ index: i.index }
+              %span.js-remove{"data-index" => "#{i.index}"}
+                削除
+            = i.check_box :_destroy, { data: { index: i.index }, checked: !i.object.persisted?, class: 'fix_index'} 
             
 
          
@@ -227,7 +221,7 @@
       .input-field__contents
         .input-field__contents-price
           %p.price
-            価格 (¥300~9,999,999)
+            価格 
           .plice-colum
             .plice-colum__inner
               .headlabel

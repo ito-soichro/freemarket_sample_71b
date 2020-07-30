@@ -52,9 +52,9 @@ window.addEventListener("load", function(){
         $('.hidden-destroy').hide();
 
         console.log(file_index);
-        if (file_index == 4){ 
-          $('#image-box__container').css('display', 'none')
-        }
+        // if (file_index == 5){ 
+        //   $('#image-box__container').css('display', 'none')
+        // }
       }
     })
     $('.hidden-destroy').hide();

@@ -14,7 +14,7 @@
                 %span.necessary
                   必須
           %p.upload
-            最大5枚までアップロードできます
+            画像がアップロードできます
           
           #image-box-1 
 
@@ -25,7 +25,7 @@
                     .new-listing__sell-upload-drop-box
                       = i.file_field :name, value:"", class: "sell-upload-drop-file"
                    
-                      = i.check_box :_destroy, data: {index: i.index}, class: ""
+                      = i.check_box :_destroy, data: {index: i.index}, class: "hidden-destroy"
                       %i.fa.fa-camera
 
       .input-field__contents          
@@ -126,7 +126,7 @@
       .input-field__contents
         .input-field__contents-price
           %p.price
-            価格 (¥300~9,999,999)
+            価格 
           .plice-colum
             .plice-colum__inner
               .headlabel

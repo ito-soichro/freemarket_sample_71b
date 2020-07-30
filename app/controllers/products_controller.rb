@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
   def new 
     @product = Product.new
     @product.images.new
-   
   end 
 
   def create
@@ -28,18 +27,15 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product.images.build
+    @product.images.new
   end
-
   def update
-    # binding.pry
-   if @product.update(product_params)
-    params[:product][:new_images] #[image1,image2]
-    
+   if @product.update(product_params)    
     redirect_to root_path
    else
     render :edit
    end
+
     
   end
 
