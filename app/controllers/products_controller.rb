@@ -27,8 +27,13 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product.images.new
+    if @product.images.count == 5
+      
+    else
+      @product.images.new
+    end
   end
+
   def update
    if @product.update(product_params)    
     redirect_to root_path
@@ -46,6 +51,8 @@ class ProductsController < ApplicationController
       render :show
     end
   end
+
+
 
   def children_category
     #子要素を探し、値を定義。定義された値をjsonへ送る

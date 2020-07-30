@@ -50,16 +50,17 @@ window.addEventListener("load", function(){
         $('.new-listing__sell-upload-drop-box').prepend(`<input value="" class="sell-upload-drop-file" id="product_images_attributes_${index}_name" type="file" name="product[images_attributes][${index}][name]">
         <input data-index="${index}" type="checkbox" value="${index}" name="product[images_attributes][${index}][_destroy]" id="product_images_attributes_${index}__destroy" class="hidden-destroy" >`)
        
-        $('.hidden-destroy').hide();
+        // $('.hidden-destroy').hide();
 
         console.log(file_index);
-        // if (file_index == 5){ 
-        //   $('#image-box__container').css('display', 'none')
-        // }
+       
+        if (file_index.length == 0){ 
+          $('#image-box__container').css('display', 'none')
+        }
       }
 
     })
-    $('.hidden-destroy').hide();
+    // $('.hidden-destroy').hide();
 // ===================================================================
 
 
@@ -69,7 +70,8 @@ window.addEventListener("load", function(){
       file_index.push(delete_image_id);
       // console.log(file_index);
       file_index.sort();
-      // console.log(file_index);
+
+      console.log(file_index);
 
       const check_box = $(`#product_images_attributes_${delete_image_id}__destroy`)
       check_box.prop("checked", true)    
