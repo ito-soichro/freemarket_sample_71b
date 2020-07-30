@@ -10,8 +10,9 @@
           .purchase-confirm__main-products-inside-product--totalprice
             .purchase-confirm__main-products-inside-product--totalprice-price
               = @product.price
-            .purchase-confirm__main-products-inside-product--totalprice-taxandpostage
-              = @product.send_price 
+              円
+              .purchase-confirm__main-products-inside-product--totalprice-taxandpostage
+                = @product.send_price_i18n 
     %section.purchase-confirm__main-details
       .purchase-confirm__main-details-inside
         .purchase-confirm__main-details-inside--price
@@ -19,6 +20,7 @@
           .purchase-confirm__main-details-inside--price-right
             .purchase-confirm__main-details-inside--price-right-price
               = @product.price
+              円
         .purchase-confirm__main-details-inside--pointcheck
           %input{type:"checkbox"}/
           %i.purchase-confirm__main-details-inside--pointcheck-icon-check
