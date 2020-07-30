@@ -2,7 +2,10 @@
   .lead
     =link_to root_path do
       =image_tag "http://furima.tokyo/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg", class: "lead__img"
-  
+
+ 
+ 
+ 
   = form_with model: @product, local: true do |f|
     .input-field
       .input-field__contents
@@ -14,23 +17,116 @@
                 %span.necessary
                   必須
           %p.upload
-            最大5枚までアップロードできます
-          
-          #image-box-1 
-            - @product.images.each_with_index do |image, i|
-              .item-image
-                .item-image__content
-                  .item-image__content--icon
-                    = image_tag image.name.url, width: "150", height: "90"
-                .item-image__operetion
-                  .item-image__operetion--delete 削除
+            画像がアップロードできます
 
-            .item-num-0#image-box__container
-              .input-field__contents-image__drop__js-file
-                .input-area
-                  = f.file_field :image, type: 'file', name: "product[images_attributes][][name]", value:"", style: "display:none", id:"img-file"
-                  %label{for: "img-file"}
-                    %i.fas.fa-camera
+        #image-box-2
+          = f.fields_for :images do |i|
+            .item-box
+              .item-image__content--icon
+                - if i.object.name.url
+                  %img{src: i.object.name.url, width: "100", height: '100', "data-index": i.index }
+                - else
+                  %img{src: i.object.name.url, width: "100", height: '100', "data-index": i.index, style: 'display: none;' }
+              .js-file_group
+                = i.file_field :name, class: 'js-file sell-upload-drop-file', data:{ index: i.index }
+              %span.js-remove{"data-index" => "#{i.index}"}
+                削除
+            = i.check_box :_destroy, { data: { index: i.index }, checked: !i.object.persisted?, class: 'fix_index'} 
+            
+
+         
+
+
+          -# #image-box-2 
+          -#   - @product.images.each_with_index do |image, i|
+          -#     .item-image
+          -#       .item-image__content
+          -#         .item-image__content--icon
+          -#         - if image.name.url
+          -#           = image_tag image.name.url, data: { index: i }, width: "100", height: '100' 
+          -#       .item-image__operetion
+                
+          -#         .js-file_group.fix_index
+          -#         -# = f.file_field :name, class: 'js-file'
+          -#         -# %br/
+          -#         %span.js-remove{"data-index" => "#{i}"}
+          -#           削除
+          -#   .item-box.item-num-0#image-box__container
+          -#     = f.fields_for :images do |i|
+          -#       .new-listing__sell-upload-items-container
+          -#         %label
+          -#           .new-listing__sell-upload-drop-box
+          -#             = i.file_field :name, class: "sell-upload-drop-file",data: {index: i.index}
+          -#           - if i.object.persisted?
+          -#             = i.check_box :_destroy, data: {index: i.index}, class: "hidden-destroy fix_index"
+          -#             -# %i.fa.fa-camera
+
+
+
+
+          -# .item-box.item-num-0#image-box__container
+          -#   - @product.images.each_with_index do |image, i|
+          -#     - if image.name.url
+          -#       .item-image__content--icon
+          -#         = image_tag image.name.url, data: { index: i }, width: "100", height: '100'
+          -#     .text
+          -#     = f.fields_for :images do |i|
+          -#       .js-file_group.fix_index{"data-index" => "#{i.index}"}
+          -#         = i.file_field :name, class: 'js-file'
+          -#         %br/
+          -#     %span.js-remove 削除
+          -#       - if i.object.persisted?
+          -#         = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy fix_index' 
+          -#     %label 
+          -#       .new-listing__sell-upload-drop-box
+              
+            
+            
+            
+            
+            
+          -# - if @product.persisted?
+          -#   .js-file_group{"data-index" => "#{@product.images.count}"}
+          -#     = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
+          -#     .js-remove 削除
+
+
+          -# = f.fields_for :images do |image|
+          -#   %label.js-file_group3{"data-index": "#{image.index}", id: "dropArea2"}
+          -#     = image.file_field :name, class: 'js-file2'
+          -#     = image.hidden_field :_destroy, data:{ index: image.index }, value: 0, class: "delete_img_#{image.index}"
+          -# - if @product.persisted?
+          -#   .js-file_group3{"data-index": "#{@product.images.count}", style: 'display: none'}
+          -#     = file_field_tag :name, name: "product[images_attributes][#{@product.images.count}][name]", class: 'js-file2', id: "img-file"
+
+
+
+
+          
+         
+       
+
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
       .input-field__contents          
         .input-field__contents-name
           .input-field__contents-image__headline
@@ -125,7 +221,7 @@
       .input-field__contents
         .input-field__contents-price
           %p.price
-            価格 (¥300~9,999,999)
+            価格 
           .plice-colum
             .plice-colum__inner
               .headlabel

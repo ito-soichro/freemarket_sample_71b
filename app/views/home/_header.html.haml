@@ -2,8 +2,8 @@
   .header__contents
     .header__contents--main
       .header__contents--main-icon
-        =link_to "#" do
-          =image_tag "http://furima.tokyo/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg"
+        =link_to root_path do
+          =image_tag "http://furima.tokyo/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg", class: "lead__img"
       .searchbox
         %form{"accept-charset" => "UTF-8", :action => "#", :method => "get", :class => "form"}
           %input{:name => "utf8", :type => "hidden", :value => "✓",}/
