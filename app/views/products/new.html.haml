@@ -38,6 +38,7 @@
                   必須
             .name-input
               = f.text_field :name, {class: "drop-input", placeholder: "40文字まで"}
+            .no-product-name.add-all
           .explain
             .input-field__contents-image__headline
               .headlabel
@@ -46,9 +47,11 @@
                 %span.necessary
                   必須
             = f.text_area :description, {class: "drop-input", placeholder: "40文字まで"}
+          .no-product2.add-all
           .text-counts
           .please-enter
-            入力してください
+          
+  
       .input-field__contents
         .input-field__contents-data
           %p.subline
@@ -63,6 +66,7 @@
                   %option{value: 0} ---
                   -  @parents.each do |parent|
                     %option{value: "#{parent.id}"} #{parent.name}
+              .no-product4.add-all
                     
               .child
                 %select.select-box2#child
@@ -70,7 +74,7 @@
                 .select-box3
                   = f.collection_select(:category_id, [], :id, :name, {prompt: "---"}, {id: "grand_child"})
             .please-enter
-              入力してください
+
             .headlabel
               %label
                 ブランド
@@ -86,7 +90,8 @@
             .name-form
               = f.select :condition, Product.conditions_i18n.invert, {}, class: "select-input", placeholder: 0
             .please-enter
-              入力してください  
+            
+   
     .input-field
       .input-field__contents
         .input-field__contents-delibary
@@ -101,7 +106,7 @@
             .name-form
               = f.select :send_price, Product.send_prices_i18n.invert, {}, class: "select-input", placeholder: 0
             .please-enter
-              入力してください
+ 
             .headlabel
               %label
                 発送元の地域
@@ -111,8 +116,9 @@
               .identification__form__field
                 .identification__form__field--input.icon-relative
                   = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--",class: 'input'
+                .no-product5.add-all
             .please-enter
-              入力してください
+         
             .headlabel
               %label
                 発送までの日数
@@ -121,7 +127,7 @@
             .name-form
               = f.select :ship_day, Product.ship_days_i18n.invert, {}, class: "select-input", placeholder: 0
             .please-enter
-              入力してください  
+               
     .input-field
       .input-field__contents
         .input-field__contents-price
@@ -138,6 +144,7 @@
                 ¥
               .colum-input
                 = f.number_field :price, placeholder: "0", class: "colum-input__maney-inner"
+            .no-product-price.add-all
             .plice-colum__inner
               .plice-colum__inner-item
               -# 後に使用予定

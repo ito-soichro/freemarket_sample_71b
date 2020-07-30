@@ -26,6 +26,7 @@ window.addEventListener("load", function(){
                     <div class='item-image__content--icon'>
                       <img src=${src} width="114" height="80" >
                     </div>
+
                   </div>
                   <div class='item-image__operetion'>
                     <div class='item-image__operetion--delete' data-index="${index}">削除</div>
@@ -56,6 +57,7 @@ window.addEventListener("load", function(){
         //   $('#image-box__container').css('display', 'none')
         // }
       }
+
     })
     $('.hidden-destroy').hide();
 // ===================================================================
