@@ -332,7 +332,7 @@ window.addEventListener("load", function(){
       let price = $(this).val();
       if( price == 0){
         $('#product_price').css('border-color','red')
-        $('.no-product-price').text('300以上9999999以下で入力してください')
+        $('.no-product-price').text('価格を入力してください')
       }else{
         $('#product_price').css('border-color','')
         $('.no-product-price').text('')
@@ -342,7 +342,7 @@ window.addEventListener("load", function(){
       let price = $(this).val();
       if( price == 0){
         $('#product_price').css('border-color','red')
-        $('.no-product-price').text('300以上9999999以下で入力してください')
+        $('.no-product-price').text('価格を入力してください')
       }else{
         $('#product_price').css('border-color','')
         $('.no-product-price').text('')
